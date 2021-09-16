@@ -8,6 +8,9 @@ public class PlayerProperties : MonoBehaviour
     bool isHoldingItem;
     bool isOnGround;
     public Transform spawnPos;
+
+    public bool hasStars;
+    public bool hasDash;
     void Awake()
     {
         transform.position = spawnPos.position;

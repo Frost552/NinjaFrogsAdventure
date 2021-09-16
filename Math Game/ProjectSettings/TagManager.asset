@@ -11,6 +11,7 @@ TagManager:
   - WeightObject
   - KeyObject
   - Stone
+  - PowerUp
   layers:
   - Default
   - TransparentFX
