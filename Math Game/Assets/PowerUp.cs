@@ -27,10 +27,12 @@ public class PowerUp : MonoBehaviour
             if(itemCall == "Star")
             {
                 GetComponent<PlayerProperties>().hasStars = true;
+                collision.gameObject.SetActive(false);
             }
             if (itemCall == "Dash")
             {
                 GetComponent<PlayerProperties>().hasDash = true;
+                collision.gameObject.SetActive(false);
             }
         }      
     }

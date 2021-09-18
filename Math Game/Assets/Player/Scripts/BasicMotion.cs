@@ -7,6 +7,7 @@ public class BasicMotion : MonoBehaviour
     // Start is called before the first frame update
    
     Rigidbody2D rb;
+    PlayerProperties PP;
     public AudioSource[] sfx;
     public Transform groundCheck;
     public Transform leftWallCheck;
@@ -36,6 +37,7 @@ public class BasicMotion : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        PP = GetComponent<PlayerProperties>();
         Cursor.visible = false;
     }
 
@@ -93,17 +95,20 @@ public class BasicMotion : MonoBehaviour
 
     private void Dash()
     {
-        if(canDash && dashTimer <= 0)
+        if (PP.hasDash)
         {
-            rb.gravityScale = 0.0f;
-            if(GetFacingLeft() == true)
-            rb.velocity = new Vector2(-moveSpeed * 5, 0);
-            else
-                rb.velocity = new Vector2(moveSpeed * 5, 0);
-            dashTimer = 0.2f;
-            canDash = false;
+            if (canDash && dashTimer <= 0)
+            {
+                rb.gravityScale = 0.0f;
+                if (GetFacingLeft() == true)
+                    rb.velocity = new Vector2(-moveSpeed * 5, 0);
+                else
+                    rb.velocity = new Vector2(moveSpeed * 5, 0);
+                dashTimer = 0.2f;
+                canDash = false;
 
-            
+
+            }
         }
         
     }
